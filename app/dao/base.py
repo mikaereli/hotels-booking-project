@@ -18,7 +18,7 @@ class BaseDao:
                 select(cls.model).filter_by(**filter_by)
             )
         result = await session.execute(query)
-        return result.scalars().all()
+        return result.mappings().all()
     @classmethod
     async def add(cls, **data):
         async with async_session() as session:
