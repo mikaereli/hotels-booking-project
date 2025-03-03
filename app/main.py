@@ -7,6 +7,7 @@ from sqladmin import Admin
 
 from app.database import engine
 from app.admin.views import BookingView, HotelsView, RoomsView, UsersView
+from app.admin.auth import authentication_backend
 from app.images.router import router as router_images
 from app.bookings.router import router as router_bookings
 from app.users.router import router as router_users
@@ -48,7 +49,7 @@ app.add_middleware(
 
 
 
-admin = Admin(app, engine)
+admin = Admin(app, engine, authentication_backend=authentication_backend)
 
 admin.add_view(UsersView)
 admin.add_view(BookingView)

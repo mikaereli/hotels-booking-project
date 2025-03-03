@@ -28,10 +28,5 @@ async def get_hotels_by_location_and_time(
         raise HTTPException(status_code=400, detail="Максимальное количество дней бронирования - 31")
     await asyncio.sleep(3)
     hotels = await HotelDao.find_all(location, date_from, date_to)
-    hotels_dict = [
-    {**dict(row._mapping), "services": json.dumps(row.services)}
-    for row in hotels
-    ]
-    return TypeAdapter(SHotels).validate_python(hotels_dict)
-
+    return hotels 
     

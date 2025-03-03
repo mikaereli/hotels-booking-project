@@ -75,4 +75,4 @@ class HotelDao(BaseDao):
         async with async_session() as session:
             # logger.debug(get_hotels_with_rooms.compile(engine, compile_kwargs={"literal_binds": True}))
             hotels_with_rooms = await session.execute(get_hotels_with_rooms)
-            return hotels_with_rooms.all()
+            return hotels_with_rooms.mappings().all()
