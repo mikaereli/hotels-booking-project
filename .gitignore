@@ -1,4 +1,4 @@
 .env
-.pip
-venv
-.pip3
+/pip
+/venv
+/pip3
