@@ -8,6 +8,8 @@ from app.hotels.models import Hotels
 from app.hotels.schemas import SHotels
 from fastapi_cache.decorator import cache
 from pydantic import TypeAdapter
+
+
 router = APIRouter(
     prefix="/hotels",
     tags=["Отели"]
@@ -30,6 +32,6 @@ async def get_hotels_by_location_and_time(
     {**dict(row._mapping), "services": json.dumps(row.services)}
     for row in hotels
     ]
-    return TypeAdapter(List[SHotels]).validate_python(hotels_dict)
+    return TypeAdapter(SHotels).validate_python(hotels_dict)
 
     
