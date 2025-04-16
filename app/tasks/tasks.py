@@ -1,4 +1,4 @@
-from app.tasks.celery import celery
+from app.tasks.celery_task import celery
 from PIL import Image
 from pathlib import Path
 
